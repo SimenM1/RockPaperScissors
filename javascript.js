@@ -37,4 +37,11 @@ function playRound(){
         }
 }
 
-console.log(playRound())
+
+function Game(){
+    for (let i=0; i<5; i++) {
+        playRound()
+    }
+}
+
+Game()
