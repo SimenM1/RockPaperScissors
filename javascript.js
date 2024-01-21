@@ -4,5 +4,33 @@ function compChoice() {
     return objects[compnr]
 }
 
+let playerChoice = prompt("Choose Rock Paper or Scissors!").toLowerCase()
+let computerChoice = compChoice()
+console.log(playerChoice)
+console.log(computerChoice)
+while (computerChoice === playerChoice) {
+    console.log("draw")
+    playerChoice = prompt("Choose Rock Paper or Scissors!").toLowerCase()
+    computerChoice = compChoice()
+    console.log(playerChoice)
+    console.log(computerChoice)
+}
 
-console.log(compChoice())
+if (computerChoice === "rock" && playerChoice === "paper") {
+        console.log("you win")
+
+    }
+
+    else if (computerChoice === "paper" && playerChoice === "scissors") {
+        console.log("you win")
+
+    }
+
+    else if (computerChoice === "scissors" && playerChoice === "rock") {
+        console.log("you win")
+
+    }
+
+    else {
+        console.log("you lose!")
+    }
