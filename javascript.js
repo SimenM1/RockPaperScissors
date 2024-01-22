@@ -18,30 +18,43 @@ function playRound(){
     }
 
     if (computerChoice === "rock" && playerChoice === "paper") {
-            return "you win"
+            console.log("you win")
+            return "1"
+           
 
         }
 
         else if (computerChoice === "paper" && playerChoice === "scissors") {
-            return "you win"
+            console.log("you win")
+            return "1"
+            
 
         }
 
         else if (computerChoice === "scissors" && playerChoice === "rock") {
-            return "you win"
+            console.log("you win")
+            return "1"
 
         }
 
         else {
-            return "you lose!!!!"
+            console.log("you lose")
+            return "0"
         }
 }
 
 
-function Game(){
-    for (let i=0; i<5; i++) {
-        playRound()
+function Game() {
+    var outcome = +playRound()
+    for (i = 0; i < 4; i++) {
+        outcome += +playRound()
     }
+    if (outcome > 3) {
+        return "you win the game"
+    }
+        else 
+        return "you lose the game"
 }
 
-Game()
+
+console.log(Game())
