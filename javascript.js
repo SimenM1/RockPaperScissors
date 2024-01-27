@@ -1,13 +1,21 @@
 let playerScore = 0
 let compScore = 0
+dispDiv = document.querySelector("#score")
+compChoiceDisp = document.createElement("p")  
+dispDiv.appendChild(compChoiceDisp)
+scoreDisp = document.createElement("p")
+dispDiv.appendChild(scoreDisp)
+finalDisp = document.createElement("p")
+dispDiv.appendChild(finalDisp)
 const rock = document.querySelector("#rock");
 const paper = document.querySelector("#paper");
 const scissors = document.querySelector("#scissors");
 const button = document.querySelector(".button")
 playerChoice = ""
-rock.addEventListener("click", () => {playerChoice = "rock"; playRound(); scoreboard()});
-paper.addEventListener("click", () => {playerChoice = "paper"; playRound(); scoreboard()});
-scissors.addEventListener("click", () => {playerChoice = "scissors"; playRound(); scoreboard()});
+computerChoice = ""
+rock.addEventListener("click", () => {playerChoice = "rock"; playRound(); scoreboard(); Game();});
+paper.addEventListener("click", () => {playerChoice = "paper"; playRound(); scoreboard(); Game();});
+scissors.addEventListener("click", () => {playerChoice = "scissors"; playRound(); scoreboard(); Game();});
 
 function playRound(){    
     function compChoice() {    
@@ -17,8 +25,7 @@ function playRound(){
     }
 
     let computerChoice = compChoice();
-    console.log(playerChoice);
-    console.log(computerChoice);
+    compChoiceDisp.textContent = "Computer plays: " + computerChoice;
     if (computerChoice === playerChoice) {
         console.log("draw play again");
     }
@@ -50,20 +57,27 @@ function playRound(){
 }
 
 function scoreboard() {
-    scoreDisp = document.createElement("p")
-    dispDiv = document.querySelector("#score")    
-    scoreDisp.textContent = "Player Score: " + playerScore + " vs Computer Score: " + compScore;
-    dispDiv.appendChild(scoreDisp)
+    scoreDisp.textContent = " Player Score: " + playerScore + " vs Computer Score: " + compScore;
 }
 
 
  function Game() { 
     if (compScore > 4) {
-        return "you win the game";
-
-    }
-        else {
-            return "you lose the game";
+        finalDisp.textContent = "you lose :(";
+        playerScore = 0;
+        compScore = 0;
         }
+
+        else if (playerScore > 4) {
+            finalDisp.textContent = "you win :(";
+            playerScore = 0;
+            compScore = 0;
+        }
+
+        else {
+            finalDisp.textContent = "";
+        }
+    
+        
  } 
 
